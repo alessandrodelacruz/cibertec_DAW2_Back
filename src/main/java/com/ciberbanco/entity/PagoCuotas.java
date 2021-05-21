@@ -32,7 +32,7 @@ public class PagoCuotas implements Serializable {
 	@Column(name = "ID_METODO_PAGO")
 	private int MetodoPago;
 	
-	
+	//aca estuvo piero
 	
 	public int getId() {
 		return id;
