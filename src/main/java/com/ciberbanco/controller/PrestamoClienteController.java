@@ -2,7 +2,6 @@ package com.ciberbanco.controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,52 +11,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.ciberbanco.entity.TiposDeCambio;
-import com.ciberbanco.service.TiposDeCambioService;
+import com.ciberbanco.entity.PrestamoCliente;
+import com.ciberbanco.service.PrestamoClienteService;
 
 @RestController
-@RequestMapping("/tiposDeCambio")
-public class TiposDeCambioController {
+@RequestMapping("/prestamoCliente")
+public class PrestamoClienteController {
 
 	@Autowired
-	private TiposDeCambioService tiposDeCambioService;
+	private PrestamoClienteService prestamoClienteService;
 
 	@GetMapping("/lista")
 	@ResponseBody
-	public List<TiposDeCambio> lista() {
-		return tiposDeCambioService.listAll();
+	public List<PrestamoCliente> lista() {
+		return prestamoClienteService.listAll();
 	}
 
 	@PostMapping("/registrar")
-	public void registrar(@RequestBody TiposDeCambio bean) {
-		tiposDeCambioService.save(bean);
+	public void registrar(@RequestBody PrestamoCliente bean) {
+		prestamoClienteService.save(bean);
 	}
 
 	@PostMapping("/actualizar")
-	public void actualizar(@RequestBody TiposDeCambio bean) {
-		tiposDeCambioService.save(bean);
+	public void actualizar(@RequestBody PrestamoCliente bean) {
+		prestamoClienteService.save(bean);
 	}
 
 	@DeleteMapping("/eliminar/{codigo}")
 	public void eliminar(@PathVariable("codigo") Integer cod) {
-		tiposDeCambioService.delete(cod);
+		prestamoClienteService.delete(cod);
 	}
 
 	@GetMapping("/buscar/{codigo}")
 	@ResponseBody
-	public Optional<TiposDeCambio> buscar(@PathVariable("codigo") Integer cod) {
-		return tiposDeCambioService.find(cod);
+	public Optional<PrestamoCliente> buscar(@PathVariable("codigo") Integer cod) {
+		return prestamoClienteService.find(cod);
 	}
-
-//	@GetMapping("/tc")
-//	public List<TiposDeCambio> listar(){
-//		return tiposDeCambioService.findAll();
-//	}
-//	
-//	@PostMapping("/tc")
-//	@ResponseStatus(HttpStatus.CREATED)
-//	public TiposDeCambio save(@RequestBody TiposDeCambio tc) {
-//		return tiposDeCambioService.save(tc);
-//	}
-
 }

@@ -1,12 +1,11 @@
 package com.ciberbanco.dao;
-import java.util.List;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.ciberbanco.entity.TiposDeCambio;
 
-@Repository("tipoDeCambioRepository")
-public interface TiposDeCambioDAO extends CrudRepository<TiposDeCambio, Integer>{
+//@Repository("tipoDeCambioRepository")
+//public interface TiposDeCambioDAO extends CrudRepository<TiposDeCambio, Integer>{
+public interface TiposDeCambioDAO extends JpaRepository<TiposDeCambio, Integer>{
 
 	
 	
