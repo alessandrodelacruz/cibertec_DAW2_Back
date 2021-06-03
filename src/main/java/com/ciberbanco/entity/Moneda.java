@@ -1,4 +1,5 @@
 package com.ciberbanco.entity;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,43 +18,40 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "CIBERBANCO_MONEDAS")
-public class Moneda implements Serializable{
-	
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name = "ID",nullable = false, unique = true)
-private int id;
+public class Moneda implements Serializable {
 
-@Column(name="MONEDA")
-private String moneda;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", nullable = false, unique = true)
+	private int id;
 
-@OneToMany(mappedBy = "moneda_des")
-private List<TiposDeCambio> tiposDeCambio;
+	@Column(name = "MONEDA")
+	private String moneda;
 
-@OneToMany(mappedBy = "moneda_org")
-private List<TiposDeCambio> tiposDeCambios;
+	@OneToMany(mappedBy = "moneda_des")
+	private List<TiposDeCambio> tiposDeCambio;
 
-@OneToMany(mappedBy = "moneda",fetch = FetchType.LAZY)
-@JsonIgnore
-private List<TiposDePrestamo> tiposDePrestamo;
+	@OneToMany(mappedBy = "moneda_org")
+	private List<TiposDeCambio> tiposDeCambios;
 
+	@OneToMany(mappedBy = "moneda", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<TiposDePrestamo> tiposDePrestamo;
 
-public int getId() {
-	return id;
-}
+	public int getId() {
+		return id;
+	}
 
-public void setId(int id) {
-	this.id = id;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-public String getMoneda() {
-	return moneda;
-}
+	public String getMoneda() {
+		return moneda;
+	}
 
-public void setMoneda(String moneda) {
-	this.moneda = moneda;
-}
+	public void setMoneda(String moneda) {
+		this.moneda = moneda;
+	}
 
-
-	
 }

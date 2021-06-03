@@ -17,43 +17,44 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ciberbanco.entity.Moneda;
 import com.ciberbanco.service.MonedaService;
 
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@RequestMapping("/moneda")
+//@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class MonedaController {
 	
 	@Autowired
 	private MonedaService monedaService;
 	
-	@GetMapping("/monedas")
+	@GetMapping("/lista")
 	public List<Moneda> listar(){
-		return monedaService.findAll();
+		return monedaService.listAll();
 	}
 	
-	@GetMapping("/monedas/{id}")
-	public Moneda listarPorId(@PathVariable Integer id){
-		return monedaService.findById(id);
-	}
-	
-	@PostMapping("/monedas")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Moneda guardar(@RequestBody Moneda moneda) {
-		System.out.println(""+moneda.getMoneda());
-		return monedaService.save(moneda);
-	}
-
-	@PutMapping("/monedas/{id}")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Moneda actualizar(@RequestBody Moneda moneda, @PathVariable Integer id){
-		Moneda m = monedaService.findById(id);
-		m.setMoneda(moneda.getMoneda());
-		return monedaService.save(m);
-	}
-	
-	@DeleteMapping("monedas/{id}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void eliminar(@PathVariable Integer id) {
-		monedaService.delete(id);
-	}
+//	@GetMapping("/monedas/{id}")
+//	public Moneda listarPorId(@PathVariable Integer id){
+//		return monedaService.findById(id);
+//	}
+//	
+//	@PostMapping("/monedas")
+//	@ResponseStatus(HttpStatus.CREATED)
+//	public Moneda guardar(@RequestBody Moneda moneda) {
+//		System.out.println(""+moneda.getMoneda());
+//		return monedaService.save(moneda);
+//	}
+//
+//	@PutMapping("/monedas/{id}")
+//	@ResponseStatus(HttpStatus.CREATED)
+//	public Moneda actualizar(@RequestBody Moneda moneda, @PathVariable Integer id){
+//		Moneda m = monedaService.findById(id);
+//		m.setMoneda(moneda.getMoneda());
+//		return monedaService.save(m);
+//	}
+//	
+//	@DeleteMapping("monedas/{id}")
+//	@ResponseStatus(HttpStatus.NO_CONTENT)
+//	public void eliminar(@PathVariable Integer id) {
+//		monedaService.delete(id);
+//	}
 	
 }

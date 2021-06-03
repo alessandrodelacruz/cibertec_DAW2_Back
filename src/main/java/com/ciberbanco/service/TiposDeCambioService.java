@@ -18,14 +18,36 @@ public class TiposDeCambioService {
 		return tiposDeCambio.findAll();
 	}
 
-	public void save(TiposDeCambio bean) {
-		tiposDeCambio.save(bean);
+	public TiposDeCambio save(TiposDeCambio bean) {
+		try {
+			return tiposDeCambio.save(bean);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
 	}
 
-	public void delete(Integer cod) {
-		tiposDeCambio.deleteById(cod);
+	public TiposDeCambio actualizar(TiposDeCambio bean) {
+		try {
+			return tiposDeCambio.save(bean);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
+
 	}
 
+	public Boolean delete(Integer cod) {
+		try {
+			tiposDeCambio.deleteById(cod);
+			Boolean resp = tiposDeCambio.existsById(cod);
+			return resp;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
+	}
+	
 	public Optional<TiposDeCambio> find(Integer cod) {
 		return tiposDeCambio.findById(cod);
 	}

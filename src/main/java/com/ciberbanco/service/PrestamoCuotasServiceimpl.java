@@ -7,14 +7,14 @@ import com.ciberbanco.dao.PrestamoCuotasDAO;
 import com.ciberbanco.entity.PrestamoCuotas;
 
 @Service
-public class PrestamoCuotasServiceimpl implements PrestamoCuotasService{
+public class PrestamoCuotasServiceimpl {
 	@Autowired
 	private PrestamoCuotasDAO prestamoCuotasDAO;
 
-	@Override
-	public void save(PrestamoCuotas bean) {
-		// TODO Auto-generated method stub
-		prestamoCuotasDAO.save(bean);
-	}
+//	@Override
+//	public void save(PrestamoCuotas bean) {
+//		// TODO Auto-generated method stub
+//		prestamoCuotasDAO.save(bean);
+//	}
 
 }

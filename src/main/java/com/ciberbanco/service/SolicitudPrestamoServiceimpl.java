@@ -7,14 +7,14 @@ import com.ciberbanco.dao.SolicitudPrestamoDAO;
 import com.ciberbanco.entity.SolicitudPrestamo;
 
 @Service
-public class SolicitudPrestamoServiceimpl implements SolicitudPrestamoService{
+public class SolicitudPrestamoServiceimpl  {
 	@Autowired
 	private SolicitudPrestamoDAO solicitudPrestamoDAO;
 
-	@Override
-	public void save(SolicitudPrestamo bean) {
-		// TODO Auto-generated method stub
-		solicitudPrestamoDAO.save(bean);
-	}
+//	@Override
+//	public void save(SolicitudPrestamo bean) {
+//		// TODO Auto-generated method stub
+//		solicitudPrestamoDAO.save(bean);
+//	}
 
 }

@@ -1,9 +1,11 @@
 package com.ciberbanco.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,8 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ciberbanco.entity.TiposDeCambio;
 import com.ciberbanco.service.TiposDeCambioService;
 
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/tiposDeCambio")
+@RequestMapping("/tipodecambio")
 public class TiposDeCambioController {
 
 	@Autowired
@@ -25,22 +28,41 @@ public class TiposDeCambioController {
 	@GetMapping("/lista")
 	@ResponseBody
 	public List<TiposDeCambio> lista() {
-		return tiposDeCambioService.listAll();
+		List objtList = new ArrayList<>();
+		try {
+			objtList = tiposDeCambioService.listAll();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return objtList;
 	}
 
 	@PostMapping("/registrar")
 	public void registrar(@RequestBody TiposDeCambio bean) {
-		tiposDeCambioService.save(bean);
+		try {
+			tiposDeCambioService.save(bean);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@PostMapping("/actualizar")
 	public void actualizar(@RequestBody TiposDeCambio bean) {
-		tiposDeCambioService.save(bean);
+		try {
+			tiposDeCambioService.save(bean);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@DeleteMapping("/eliminar/{codigo}")
 	public void eliminar(@PathVariable("codigo") Integer cod) {
-		tiposDeCambioService.delete(cod);
+		try {
+			tiposDeCambioService.delete(cod);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@GetMapping("/buscar/{codigo}")
@@ -48,16 +70,5 @@ public class TiposDeCambioController {
 	public Optional<TiposDeCambio> buscar(@PathVariable("codigo") Integer cod) {
 		return tiposDeCambioService.find(cod);
 	}
-
-//	@GetMapping("/tc")
-//	public List<TiposDeCambio> listar(){
-//		return tiposDeCambioService.findAll();
-//	}
-//	
-//	@PostMapping("/tc")
-//	@ResponseStatus(HttpStatus.CREATED)
-//	public TiposDeCambio save(@RequestBody TiposDeCambio tc) {
-//		return tiposDeCambioService.save(tc);
-//	}
 
 }
