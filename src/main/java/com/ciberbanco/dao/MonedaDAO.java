@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.ciberbanco.entity.Moneda;
 import com.ciberbanco.entity.TiposDeCambio;
 
+@Repository
 public interface MonedaDAO extends JpaRepository<Moneda, Integer> {
 
 }

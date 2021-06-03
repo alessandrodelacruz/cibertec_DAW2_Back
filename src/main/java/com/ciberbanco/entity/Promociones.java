@@ -23,25 +23,27 @@ public class Promociones implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", nullable = false, unique = true)
-	private Integer ID;
+	private Integer id;
 
 	@Column(name = "NOMBRE")
-	private String NOMBRE;
+	private String nombre;
 
-	public Integer getID() {
-		return ID;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getNOMBRE() {
-		return NOMBRE;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNOMBRE(String nOMBRE) {
-		NOMBRE = nOMBRE;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
+
+	
 
 }

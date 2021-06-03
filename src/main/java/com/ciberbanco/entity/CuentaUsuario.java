@@ -16,92 +16,94 @@ public class CuentaUsuario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", nullable = false, unique = true)
-	private Integer ID;
+	private Integer id;
 
 	@Column(name = "EMAIL")
-	private String EMAIL;
+	private String email;
 
 	@Column(name = "TIPO_DE_CUENTA")
-	private Integer TIPO_DE_CUENTA;
+	private Integer tipo_de_cuenta;
 
 	@Column(name = "FECHA_NAC")
-	private Date FECHA_NAC;
+	private Date fecha_nac;
 
 	@Column(name = "SEXO")
-	private Integer SEXO;
+	private Integer sexo;
 
 	@Column(name = "DIRECCION")
-	private String DIRECCION;
+	private String direccion;
 
 	@Column(name = "ESTADO")
-	private Integer ESTADO;
+	private Integer estado;
 
 	@Column(name = "ID_DISTRITO")
-	private Integer ID_DISTRITO;
+	private Integer id_distrito;
 
-	public Integer getID() {
-		return ID;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getEMAIL() {
-		return EMAIL;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEMAIL(String eMAIL) {
-		EMAIL = eMAIL;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public Integer getTIPO_DE_CUENTA() {
-		return TIPO_DE_CUENTA;
+	public Integer getTipo_de_cuenta() {
+		return tipo_de_cuenta;
 	}
 
-	public void setTIPO_DE_CUENTA(Integer tIPO_DE_CUENTA) {
-		TIPO_DE_CUENTA = tIPO_DE_CUENTA;
+	public void setTipo_de_cuenta(Integer tipo_de_cuenta) {
+		this.tipo_de_cuenta = tipo_de_cuenta;
 	}
 
-	public Date getFECHA_NAC() {
-		return FECHA_NAC;
+	public Date getFecha_nac() {
+		return fecha_nac;
 	}
 
-	public void setFECHA_NAC(Date fECHA_NAC) {
-		FECHA_NAC = fECHA_NAC;
+	public void setFecha_nac(Date fecha_nac) {
+		this.fecha_nac = fecha_nac;
 	}
 
-	public Integer getSEXO() {
-		return SEXO;
+	public Integer getSexo() {
+		return sexo;
 	}
 
-	public void setSEXO(Integer sEXO) {
-		SEXO = sEXO;
+	public void setSexo(Integer sexo) {
+		this.sexo = sexo;
 	}
 
-	public String getDIRECCION() {
-		return DIRECCION;
+	public String getDireccion() {
+		return direccion;
 	}
 
-	public void setDIRECCION(String dIRECCION) {
-		DIRECCION = dIRECCION;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
-	public Integer getESTADO() {
-		return ESTADO;
+	public Integer getEstado() {
+		return estado;
 	}
 
-	public void setESTADO(Integer eSTADO) {
-		ESTADO = eSTADO;
+	public void setEstado(Integer estado) {
+		this.estado = estado;
 	}
 
-	public Integer getID_DISTRITO() {
-		return ID_DISTRITO;
+	public Integer getId_distrito() {
+		return id_distrito;
 	}
 
-	public void setID_DISTRITO(Integer iD_DISTRITO) {
-		ID_DISTRITO = iD_DISTRITO;
+	public void setId_distrito(Integer id_distrito) {
+		this.id_distrito = id_distrito;
 	}
+
+	
 
 
 	

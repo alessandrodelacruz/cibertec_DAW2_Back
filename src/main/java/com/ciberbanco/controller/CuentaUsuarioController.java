@@ -3,6 +3,7 @@ package com.ciberbanco.controller;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ciberbanco.entity.CuentaUsuario;
 import com.ciberbanco.service.CuentaUsuarioService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/cuentaUsuario")
 public class CuentaUsuarioController {

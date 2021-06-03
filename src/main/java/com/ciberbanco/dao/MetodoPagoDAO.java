@@ -1,10 +1,10 @@
 package com.ciberbanco.dao;
 
-import java.util.List;
-
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import com.ciberbanco.entity.MetodoPago;
 
-public interface MetodoPagoDAO {
-	public List<MetodoPago> listAll();
+@Repository
+public interface MetodoPagoDAO extends JpaRepository<MetodoPago, Integer> {
 
 }

@@ -34,7 +34,6 @@ public class TiposDeCambioController {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
 		return objtList;
 	}
 

@@ -3,6 +3,7 @@ package com.ciberbanco.controller;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ciberbanco.entity.Promociones;
 import com.ciberbanco.service.PromocionesService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/promociones")
 public class PromocionesController {
@@ -32,10 +34,10 @@ public class PromocionesController {
 		promocionesService.save(bean);
 	}
 
-//	@PostMapping("/actualizar")
-//	public void actualizar(@RequestBody Promociones bean) {
-//		PromocionesService.save(bean);
-//	}
+	@PostMapping("/actualizar")
+	public void actualizar(@RequestBody Promociones bean) {
+		promocionesService.save(bean);
+	}
 
 	@DeleteMapping("/eliminar/{codigo}")
 	public void eliminar(@PathVariable("codigo") Integer cod) {
