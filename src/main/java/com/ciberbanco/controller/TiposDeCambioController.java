@@ -70,4 +70,11 @@ public class TiposDeCambioController {
 		return tiposDeCambioService.find(cod);
 	}
 
+	@PostMapping("/listaMonedaOrigen")
+//	@GetMapping("/listaMonedaOrigen")
+//	@ResponseBody
+	public List<TiposDeCambio> listaMonedaOrigen(@RequestBody TiposDeCambio bean) {
+			return  tiposDeCambioService.listarPorMonedaOrigen(bean);
+	}
+
 }

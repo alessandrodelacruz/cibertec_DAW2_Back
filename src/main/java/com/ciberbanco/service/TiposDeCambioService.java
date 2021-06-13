@@ -52,6 +52,10 @@ public class TiposDeCambioService {
 		return tiposDeCambio.findById(cod);
 	}
 
+	public List<TiposDeCambio> listarPorMonedaOrigen(TiposDeCambio bean) {
+		return tiposDeCambio.listarPorMonedaOrigen(bean.getMoneda_origen());
+	}
+
 //	@Transactional(readOnly = true)
 //	@Override
 //	public List<TiposDeCambio> findAll() {
