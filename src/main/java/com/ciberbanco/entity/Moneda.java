@@ -27,16 +27,22 @@ public class Moneda implements Serializable {
 
 	@Column(name = "MONEDA")
 	private String moneda;
-
-	@OneToMany(mappedBy = "moneda_des")
-	private List<TiposDeCambio> tiposDeCambio;
-
-	@OneToMany(mappedBy = "moneda_org")
-	private List<TiposDeCambio> tiposDeCambios;
-
-	@OneToMany(mappedBy = "moneda", fetch = FetchType.LAZY)
+	
 	@JsonIgnore
+	@OneToMany(mappedBy = "moneda_origen")
+	private List<TiposDeCambio> tiposDeCambioo;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "moneda_destino")
+	private List<TiposDeCambio> tiposDeCambiod;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "moneda", fetch = FetchType.LAZY)
 	private List<TiposDePrestamo> tiposDePrestamo;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "idmoneda")
+	private List<Transferencia> lstTransferencia;
 
 	public int getId() {
 		return id;
@@ -53,5 +59,31 @@ public class Moneda implements Serializable {
 	public void setMoneda(String moneda) {
 		this.moneda = moneda;
 	}
+
+	public List<TiposDeCambio> getTiposDeCambioo() {
+		return tiposDeCambioo;
+	}
+
+	public void setTiposDeCambioo(List<TiposDeCambio> tiposDeCambioo) {
+		this.tiposDeCambioo = tiposDeCambioo;
+	}
+
+	public List<TiposDeCambio> getTiposDeCambiod() {
+		return tiposDeCambiod;
+	}
+
+	public void setTiposDeCambiod(List<TiposDeCambio> tiposDeCambiod) {
+		this.tiposDeCambiod = tiposDeCambiod;
+	}
+
+	public List<TiposDePrestamo> getTiposDePrestamo() {
+		return tiposDePrestamo;
+	}
+
+	public void setTiposDePrestamo(List<TiposDePrestamo> tiposDePrestamo) {
+		this.tiposDePrestamo = tiposDePrestamo;
+	}
+
+
 
 }

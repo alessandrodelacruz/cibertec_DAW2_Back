@@ -53,7 +53,7 @@ public class TiposDeCambioService {
 	}
 
 	public List<TiposDeCambio> listarPorMonedaOrigen(TiposDeCambio bean) {
-		return tiposDeCambio.listarPorMonedaOrigen(bean.getMoneda_origen());
+		return tiposDeCambio.listarPorMonedaOrigen(1);
 	}
 
 //	@Transactional(readOnly = true)

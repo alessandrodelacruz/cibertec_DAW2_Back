@@ -23,11 +23,11 @@ public class TiposDeCambio implements Serializable {
 	@Column(name = "ID", nullable = false, unique = true)
 	private int id;
 
-	@Column(name = "MONEDA_ORIGEN")
-	private int moneda_origen;
-
-	@Column(name = "MONEDA_DESTINO")
-	private int moneda_destino;
+//	@Column(name = "MONEDA_ORIGEN")
+//	private int moneda_origen;
+//
+//	@Column(name = "MONEDA_DESTINO")
+//	private int moneda_destino;
 
 	@Column(name = "TIPO_CAMBIO")
 	private double tipo_cambio;
@@ -37,14 +37,12 @@ public class TiposDeCambio implements Serializable {
 	private Date fecha;
 
 	@ManyToOne
-	@JoinColumn(name = "moneda_origen", insertable = false, updatable = false)
-	@JsonIgnore
-	private Moneda moneda_org;
+	@JoinColumn(name = "MONEDA_ORIGEN")
+	private Moneda moneda_origen;
 
 	@ManyToOne
-	@JoinColumn(name = "moneda_destino", insertable = false, updatable = false)
-	@JsonIgnore
-	private Moneda moneda_des;
+	@JoinColumn(name = "MONEDA_DESTINO")
+	private Moneda moneda_destino;
 
 	public int getId() {
 		return id;
@@ -52,22 +50,6 @@ public class TiposDeCambio implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getMoneda_origen() {
-		return moneda_origen;
-	}
-
-	public void setMoneda_origen(int moneda_origen) {
-		this.moneda_origen = moneda_origen;
-	}
-
-	public int getMoneda_destino() {
-		return moneda_destino;
-	}
-
-	public void setMoneda_destino(int moneda_destino) {
-		this.moneda_destino = moneda_destino;
 	}
 
 	public double getTipo_cambio() {
@@ -85,5 +67,24 @@ public class TiposDeCambio implements Serializable {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+
+	public Moneda getMoneda_origen() {
+		return moneda_origen;
+	}
+
+	public void setMoneda_origen(Moneda moneda_origen) {
+		this.moneda_origen = moneda_origen;
+	}
+
+	public Moneda getMoneda_destino() {
+		return moneda_destino;
+	}
+
+	public void setMoneda_destino(Moneda moneda_destino) {
+		this.moneda_destino = moneda_destino;
+	}
+	
+	
+	
 
 }
