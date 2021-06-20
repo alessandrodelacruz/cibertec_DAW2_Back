@@ -38,6 +38,17 @@ public class CuentaUsuario implements Serializable {
 
 	@Column(name = "ID_DISTRITO")
 	private Integer id_distrito;
+	
+	@Column(name = "tipo_usuario")
+	private String tipo_usuario;
+
+	public String getTipo_usuario() {
+		return tipo_usuario;
+	}
+
+	public void setTipo_usuario(String tipo_usuario) {
+		this.tipo_usuario = tipo_usuario;
+	}
 
 	public Integer getId() {
 		return id;

@@ -29,4 +29,7 @@ public class CuentaUsuarioService {
 		return cuentaUsuarioDAO.findById(cod);
 	}
 
+	public CuentaUsuario listByAccount(String numero,String clave) {
+		return cuentaUsuarioDAO.listar(numero, clave);
+	}
 }
