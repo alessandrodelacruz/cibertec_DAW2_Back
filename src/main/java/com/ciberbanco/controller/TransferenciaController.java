@@ -50,5 +50,10 @@ public class TransferenciaController {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	@PostMapping("/listarPorCuentaBancaria")
+	public List<Transferencia> listarPorIdCuentaOrigen(@RequestBody Transferencia bean) {
+			return  tranferenciaService.listarPorIdCuentaOrigen(bean);
+	}
 
 }

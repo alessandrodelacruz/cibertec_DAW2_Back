@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ciberbanco.entity.CuentaBancaria;
 import com.ciberbanco.entity.CuentaUsuario;
 import com.ciberbanco.entity.TiposDeCambio;
+import com.ciberbanco.entity._Respuesta;
 import com.ciberbanco.service.CuentaBancariaService;
 import com.ciberbanco.service.CuentaUsuarioService;
 

@@ -27,7 +27,18 @@ public class Moneda implements Serializable {
 
 	@Column(name = "MONEDA")
 	private String moneda;
+
+	@Column(name = "simbolo")
+	private String simbolo;
 	
+	public String getSimbolo() {
+		return simbolo;
+	}
+
+	public void setSimbolo(String simbolo) {
+		this.simbolo = simbolo;
+	}
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "moneda_origen")
 	private List<TiposDeCambio> tiposDeCambioo;
