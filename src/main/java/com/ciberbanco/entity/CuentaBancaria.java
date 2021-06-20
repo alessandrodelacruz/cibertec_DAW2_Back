@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,14 +27,16 @@ public class CuentaBancaria implements Serializable {
 	@Column(name = "ID", nullable = false, unique = true)
 	private Integer id;
 
-	@Column(name = "ID_CLIENTE")
-	private Integer id_cliente;
+	@ManyToOne
+	@JoinColumn(name = "ID_CLIENTE")
+	private CuentaUsuario id_cliente;
 
 	@Column(name = "SALDO")
 	private Double saldo;
 
-	@Column(name = "ID_MONEDA")
-	private Integer id_moneda;
+	@ManyToOne
+	@JoinColumn(name = "ID_MONEDA")
+	private Moneda id_moneda;
 
 	@Column(name = "NUMERO_CUENTA")
 	private String numero_cuenta;
@@ -60,6 +64,14 @@ public class CuentaBancaria implements Serializable {
 		this.lstCuentaOrigen = lstCuentaOrigen;
 	}
 
+	public CuentaUsuario getId_cliente() {
+		return id_cliente;
+	}
+
+	public void setId_cliente(CuentaUsuario id_cliente) {
+		this.id_cliente = id_cliente;
+	}
+
 	public List<Transferencia> getLstCuentaDestino() {
 		return lstCuentaDestino;
 	}
@@ -76,28 +88,12 @@ public class CuentaBancaria implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getId_cliente() {
-		return id_cliente;
-	}
-
-	public void setId_cliente(Integer id_cliente) {
-		this.id_cliente = id_cliente;
-	}
-
 	public Double getSaldo() {
 		return saldo;
 	}
 
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
-	}
-
-	public Integer getId_moneda() {
-		return id_moneda;
-	}
-
-	public void setId_moneda(Integer id_moneda) {
-		this.id_moneda = id_moneda;
 	}
 
 	public String getNumero_cuenta() {
@@ -123,7 +119,15 @@ public class CuentaBancaria implements Serializable {
 	public void setEstado(Integer estado) {
 		this.estado = estado;
 	}
-	
+
+
+	public Moneda getId_moneda() {
+		return id_moneda;
+	}
+
+	public void setId_moneda(Moneda id_moneda) {
+		this.id_moneda = id_moneda;
+	}
 	
 
 }

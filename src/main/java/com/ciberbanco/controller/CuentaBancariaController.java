@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ciberbanco.entity.CuentaBancaria;
 import com.ciberbanco.entity.CuentaUsuario;
 import com.ciberbanco.entity.TiposDeCambio;
+import com.ciberbanco.entity._Respuesta;
 import com.ciberbanco.service.CuentaBancariaService;
 import com.ciberbanco.service.CuentaUsuarioService;
 
@@ -36,6 +37,15 @@ public class CuentaBancariaController {
 	@PostMapping("/registrar")
 	public void registrar(@RequestBody CuentaBancaria bean) {
 		cuentaBancariaService.save(bean);
+	}
+
+	@PostMapping("/registrarC")
+	public _Respuesta  registrarCliente(@RequestBody CuentaBancaria bean) {
+		_Respuesta resp = new _Respuesta();
+		resp.setMsg("camrdi");
+		cuentaBancariaService.save(bean);
+		
+		return resp;
 	}
 
 	@PostMapping("/actualizar")

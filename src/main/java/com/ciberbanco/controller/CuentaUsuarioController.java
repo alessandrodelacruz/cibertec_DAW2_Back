@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.ciberbanco.entity.CuentaBancaria;
 import com.ciberbanco.entity.CuentaUsuario;
+import com.ciberbanco.entity._Respuesta;
 import com.ciberbanco.service.CuentaUsuarioService;
 
 @CrossOrigin(origins = "*")
@@ -35,6 +38,16 @@ public class CuentaUsuarioController {
 		cuentaUsuarioService.save(bean);
 	}
 
+
+	@PostMapping("/registrarC")
+	public _Respuesta login(@RequestBody CuentaUsuario bean,@RequestBody CuentaBancaria beanCB) {
+		_Respuesta resp = new _Respuesta();
+		resp.setMsg("camrdi");
+		cuentaUsuarioService.guardarUsuarioNuevo(bean,beanCB);
+		
+		return resp;
+	}
+	
 	@PostMapping("/actualizar")
 	public void actualizar(@RequestBody CuentaUsuario bean) {
 		cuentaUsuarioService.save(bean);

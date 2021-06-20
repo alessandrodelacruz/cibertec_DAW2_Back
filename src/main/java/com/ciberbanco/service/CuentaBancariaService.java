@@ -34,7 +34,7 @@ public class CuentaBancariaService {
 	}
 	
 	public List<CuentaBancaria> listarPorCliente(CuentaBancaria bean) {
-		return cuentaBancariaDAO.listarPorCliente(bean.getId_cliente());
+		return cuentaBancariaDAO.listarPorCliente(bean.getId_cliente().getId());
 	}
 	
 	public CuentaBancaria retornaPorNumdeCuenta(CuentaBancaria bean) {

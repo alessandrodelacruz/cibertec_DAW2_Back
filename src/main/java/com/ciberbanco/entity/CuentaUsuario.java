@@ -2,12 +2,17 @@ package com.ciberbanco.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "CIBERBANCO_CUENTA_USUARIO")
@@ -37,6 +42,7 @@ public class CuentaUsuario implements Serializable {
 	private Integer estado;
 
 	@Column(name = "ID_DISTRITO")
+
 	private Integer id_distrito;
 	
 	@Column(name = "tipo_usuario")
@@ -48,6 +54,66 @@ public class CuentaUsuario implements Serializable {
 
 	public void setTipo_usuario(String tipo_usuario) {
 		this.tipo_usuario = tipo_usuario;
+
+	}
+	@Column(name = "nombre")
+	private String nombre;
+
+	@Column(name = "apellido")
+	private String apellido;
+
+	@Column(name = "documento")
+	private String documento;
+
+	@Column(name = "numerotarjeta")
+	private String numerotarjeta;
+
+	@Column(name = "clave")
+	private String clave;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "id_cliente")
+	private List<CuentaBancaria> lstCuentaBancaria;
+
+	public String getNumerotarjeta() {
+		return numerotarjeta;
+	}
+
+	public void setNumerotarjeta(String numerotarjeta) {
+		this.numerotarjeta = numerotarjeta;
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(String documento) {
+		this.documento = documento;
+
 	}
 
 	public Integer getId() {

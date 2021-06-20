@@ -73,7 +73,7 @@ public class TiposDeCambioController {
 	@PostMapping("/listaMonedaOrigen")
 //	@GetMapping("/listaMonedaOrigen")
 //	@ResponseBody
-	public List<TiposDeCambio> listaMonedaOrigen(@RequestBody TiposDeCambio bean) {
+	public List<TiposDeCambio> listarPorMonedaOrigen(@RequestBody TiposDeCambio bean) {
 			return  tiposDeCambioService.listarPorMonedaOrigen(bean);
 	}
 
