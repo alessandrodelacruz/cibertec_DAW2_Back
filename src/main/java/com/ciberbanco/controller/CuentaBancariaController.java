@@ -39,6 +39,15 @@ public class CuentaBancariaController {
 		cuentaBancariaService.save(bean);
 	}
 
+	@PostMapping("/registrarC")
+	public _Respuesta  registrarCliente(@RequestBody CuentaBancaria bean) {
+		_Respuesta resp = new _Respuesta();
+		resp.setMsg("camrdi");
+		cuentaBancariaService.save(bean);
+		
+		return resp;
+	}
+
 	@PostMapping("/actualizar")
 	public void actualizar(@RequestBody CuentaBancaria bean) {
 		cuentaBancariaService.save(bean);

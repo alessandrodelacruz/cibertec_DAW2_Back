@@ -39,10 +39,10 @@ public class CuentaUsuarioController {
 
 
 	@PostMapping("/registrarC")
-	public _Respuesta registrarC(@RequestBody CuentaUsuario bean) {
+	public _Respuesta login(@RequestBody CuentaUsuario bean,@RequestBody CuentaBancaria beanCB) {
 		_Respuesta resp = new _Respuesta();
 		resp.setMsg("camrdi");
-		cuentaUsuarioService.save(bean);
+		cuentaUsuarioService.guardarUsuarioNuevo(bean,beanCB);
 		
 		return resp;
 	}

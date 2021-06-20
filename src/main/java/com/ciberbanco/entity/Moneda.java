@@ -54,6 +54,26 @@ public class Moneda implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "idmoneda")
 	private List<Transferencia> lstTransferencia;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "id_moneda")
+	private List<CuentaBancaria> lstCuentaBancaria;
+
+	public List<Transferencia> getLstTransferencia() {
+		return lstTransferencia;
+	}
+
+	public void setLstTransferencia(List<Transferencia> lstTransferencia) {
+		this.lstTransferencia = lstTransferencia;
+	}
+
+	public List<CuentaBancaria> getLstCuentaBancaria() {
+		return lstCuentaBancaria;
+	}
+
+	public void setLstCuentaBancaria(List<CuentaBancaria> lstCuentaBancaria) {
+		this.lstCuentaBancaria = lstCuentaBancaria;
+	}
 
 	public int getId() {
 		return id;
