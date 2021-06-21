@@ -42,8 +42,20 @@ public class CuentaUsuario implements Serializable {
 	private Integer estado;
 
 	@Column(name = "ID_DISTRITO")
-	private Integer id_distrito;;
 
+	private Integer id_distrito;
+	
+	@Column(name = "tipo_usuario")
+	private String tipo_usuario;
+
+	public String getTipo_usuario() {
+		return tipo_usuario;
+	}
+
+	public void setTipo_usuario(String tipo_usuario) {
+		this.tipo_usuario = tipo_usuario;
+
+	}
 	@Column(name = "nombre")
 	private String nombre;
 
@@ -101,6 +113,7 @@ public class CuentaUsuario implements Serializable {
 
 	public void setDocumento(String documento) {
 		this.documento = documento;
+
 	}
 
 	public Integer getId() {

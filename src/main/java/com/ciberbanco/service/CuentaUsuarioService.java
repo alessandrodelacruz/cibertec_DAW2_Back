@@ -80,4 +80,7 @@ public class CuentaUsuarioService {
 		return random;
 	}
 
+	public CuentaUsuario listByAccount(String numero,String clave) {
+		return cuentaUsuarioDAO.listar(numero, clave);
+	}
 }
