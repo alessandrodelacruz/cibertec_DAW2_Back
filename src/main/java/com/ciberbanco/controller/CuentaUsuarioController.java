@@ -2,6 +2,7 @@ package com.ciberbanco.controller;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ciberbanco.entity.CuentaBancaria;
 import com.ciberbanco.entity.CuentaUsuario;
+import com.ciberbanco.entity._EntityGlobal;
 import com.ciberbanco.entity._Respuesta;
 import com.ciberbanco.service.CuentaUsuarioService;
 
@@ -37,16 +39,15 @@ public class CuentaUsuarioController {
 		cuentaUsuarioService.save(bean);
 	}
 
-
 	@PostMapping("/registrarC")
-	public _Respuesta login(@RequestBody CuentaUsuario bean,@RequestBody CuentaBancaria beanCB) {
+	public _Respuesta login(@RequestBody _EntityGlobal obj) {
 		_Respuesta resp = new _Respuesta();
-		resp.setMsg("camrdi");
-		cuentaUsuarioService.guardarUsuarioNuevo(bean,beanCB);
-		
+		obj = cuentaUsuarioService.guardarUsuarioNuevo(obj);
+		resp.setDefaultObj(obj);
 		return resp;
+
 	}
-	
+
 	@PostMapping("/actualizar")
 	public void actualizar(@RequestBody CuentaUsuario bean) {
 		cuentaUsuarioService.save(bean);

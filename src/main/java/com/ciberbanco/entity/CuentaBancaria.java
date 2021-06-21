@@ -55,6 +55,13 @@ public class CuentaBancaria implements Serializable {
 	@OneToMany(mappedBy = "idcuentadestino")
 	private List<Transferencia> lstCuentaDestino;
 
+	public Moneda getId_moneda() {
+		return id_moneda;
+	}
+
+	public void setId_moneda(Moneda id_moneda) {
+		this.id_moneda = id_moneda;
+	}
 
 	public List<Transferencia> getLstCuentaOrigen() {
 		return lstCuentaOrigen;
@@ -118,15 +125,6 @@ public class CuentaBancaria implements Serializable {
 
 	public void setEstado(Integer estado) {
 		this.estado = estado;
-	}
-
-
-	public Moneda getId_moneda() {
-		return id_moneda;
-	}
-
-	public void setId_moneda(Moneda id_moneda) {
-		this.id_moneda = id_moneda;
 	}
 	
 

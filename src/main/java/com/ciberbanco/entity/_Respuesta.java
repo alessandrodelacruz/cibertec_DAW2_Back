@@ -18,6 +18,29 @@ public class _Respuesta {
 	Object defaultObj;	
 	List<? extends Object> aaData;
 	
+	private String numerotarjeta;
+	private String clave;
+	private String cuentabancaria;
+	
+	
+	public String getNumerotarjeta() {
+		return numerotarjeta;
+	}
+	public void setNumerotarjeta(String numerotarjeta) {
+		this.numerotarjeta = numerotarjeta;
+	}
+	public String getClave() {
+		return clave;
+	}
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+	public String getCuentabancaria() {
+		return cuentabancaria;
+	}
+	public void setCuentabancaria(String cuentabancaria) {
+		this.cuentabancaria = cuentabancaria;
+	}
 	public Integer getEstado() {
 		return estado;
 	}

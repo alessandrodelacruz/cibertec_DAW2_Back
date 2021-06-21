@@ -11,6 +11,8 @@ import com.ciberbanco.dao.CuentaBancariaDAO;
 import com.ciberbanco.dao.CuentaUsuarioDAO;
 import com.ciberbanco.entity.CuentaBancaria;
 import com.ciberbanco.entity.CuentaUsuario;
+import com.ciberbanco.entity._EntityGlobal;
+import com.ciberbanco.entity._Respuesta;
 
 @Service
 public class CuentaUsuarioService {
@@ -26,16 +28,24 @@ public class CuentaUsuarioService {
 	}
 	
 	
-	public void guardarUsuarioNuevo(CuentaUsuario bean, CuentaBancaria cb) {
+	public _EntityGlobal guardarUsuarioNuevo(_EntityGlobal bean) {
+		_EntityGlobal objglobal = new _EntityGlobal();
+		CuentaUsuario cu = bean.getCuentaUsuario();
 		String numerotarjeta = generaNumTarjeta();
-		bean.setNumerotarjeta(numerotarjeta);
-		cuentaUsuarioDAO.save(bean);
+		cu.setNumerotarjeta(numerotarjeta);
+		cuentaUsuarioDAO.save(cu);
 		
+		CuentaBancaria cb = bean.getCuentaBancaria();
 		String numerocuenta = generaNumCuentaBancaria();
 		cb.setNumero_cuenta(numerocuenta);
 		cb.setSaldo(0.00);
-		cb.setId_cliente(bean);
+		cb.setId_cliente(cu);
 		cuentaBancariaDAO.save(cb);
+		
+		objglobal.setCuentaBancaria(cb);
+		objglobal.setCuentaUsuario(cu);
+		
+		return objglobal;
 	}	
 
 	public void save(CuentaUsuario bean) {
