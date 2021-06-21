@@ -64,10 +64,9 @@ public class CuentaUsuarioController {
 		return cuentaUsuarioService.find(cod);
 	}
 	
-	@GetMapping("/listarPorCuenta")
+	@PostMapping("/listarPorCuenta")
 	@ResponseBody
-	public CuentaUsuario listarPorCuenta(@RequestParam(name = "numero",required = true) String numero,
-									  @RequestParam(name = "clave",required = true) String clave) {
-		return cuentaUsuarioService.listByAccount(numero, clave);
+	public CuentaUsuario listarPorCuenta(@RequestBody CuentaUsuario bean) {
+		return cuentaUsuarioService.listByAccount(bean.getNumerotarjeta(), bean.getClave());
 	}
 }
