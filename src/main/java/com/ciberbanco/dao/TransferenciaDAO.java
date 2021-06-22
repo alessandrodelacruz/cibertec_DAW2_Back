@@ -11,6 +11,6 @@ import com.ciberbanco.entity.Transferencia;
 @Repository
 public interface TransferenciaDAO extends JpaRepository<Transferencia, Integer> {
 	
-	@Query(value="select * from CIBERBANCO_Transferencia where idcuentaorigen = ?1", nativeQuery = true)
+	@Query(value="select * from CIBERBANCO_Transferencia where idcuentaorigen = ?1 or idcuentadestino = ?1" , nativeQuery = true)
 	List<Transferencia> listarPorIdCuentaOrigen(@Param("idcuentaorigen") Integer idcuentaorigen);
 }
